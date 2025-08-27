@@ -21,9 +21,10 @@ import com.example.taller1.data.remote.model.User
 @Composable
 fun MainScreen(
     users: List<User>,
-    onUserClick: (User) -> Unit
+    onUserClick: (User) -> Unit,
+    modifier: Modifier = Modifier
 ) {
-    LazyColumn {
+    LazyColumn(modifier = modifier) {
         stickyHeader {
             Text(
                 text = "Total usuarios: ${users.size}",
@@ -54,8 +55,7 @@ fun MainScreen(
                 },
                 modifier = Modifier.clickable { onUserClick(user) }
             )
-            Divider()
+            HorizontalDivider()
         }
     }
 }
-

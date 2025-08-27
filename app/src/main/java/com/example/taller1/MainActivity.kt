@@ -10,9 +10,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.material3.Text
 import com.example.taller1.ui.theme.Taller1Theme
-import com.example.taller1.ui.screen.MainScreen
-import com.example.taller1.data.remote.api.KtorApiClient
+import com.example.taller1.ui.navigation.NavigationStack
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,22 +21,26 @@ class MainActivity : ComponentActivity() {
         setContent {
             Taller1Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { padding ->
-                    MainScreen(KtorApiClient.getUsers(), Modifier.padding(padding))
+                    NavigationStack(modifier = Modifier.padding(padding))
                 }
             }
         }
     }
 }
 
-// El Greeting y GreetingPreview pueden permanecer aquí o moverse a otro archivo si lo prefieres
+
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    // ... (código del Greeting)
+    Text(
+        text = "Hello $name!",
+        modifier = modifier
+    )
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    // ... (código del GreetingPreview)
+    Taller1Theme {
+        Greeting("Android")
+    }
 }
-    

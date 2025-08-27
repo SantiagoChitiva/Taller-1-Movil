@@ -18,6 +18,7 @@ object KtorApiClient {
     }
 
     suspend fun getUsers(): List<User> {
-        return client.get("https://dummyjson.com/users").body()
+        val response: UsersList = client.get("https://dummyjson.com/users").body()
+        return response.users
     }
 }
