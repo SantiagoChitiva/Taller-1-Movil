@@ -1,0 +1,8 @@
+package com.example.taller1.data.remote.model
+
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class UsersList(
+    val users: List<User>
+)
