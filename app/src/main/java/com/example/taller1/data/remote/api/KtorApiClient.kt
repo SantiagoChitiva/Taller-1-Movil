@@ -1,5 +1,6 @@
 package com.example.taller1.data.remote.api
 
+import com.example.taller1.data.remote.model.User
 import com.example.taller1.data.remote.model.UsersList
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -16,7 +17,7 @@ object KtorApiClient {
         }
     }
 
-    suspend fun getUsers(): UsersList {
+    suspend fun getUsers(): List<User> {
         return client.get("https://dummyjson.com/users").body()
     }
 }
